@@ -61,3 +61,5 @@ Digging through the docs, I was originally testing with an HTTP route, which is 
 
 # Resources
 https://blog.sakuragawa.moe/deploy-granafa-with-prometheus-and-oauth2-on-openshift/
+https://github.com/openshift/oauth-proxy
+https://docs.gocd.org/current/
