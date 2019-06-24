@@ -1,0 +1,26 @@
+1apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  labels:
+    app: gocd-ansible-agent
+  name: gocd-ansible-agent
+spec:
+  failedBuildsHistoryLimit: 5
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: gocd-ansible-agent:latest
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    contextDir: gocd-ansible-agent
+    ref: initial-codeset
+    git:
+      uri: https://github.com/ArctiqTeam/openshift-gocd
+    type: Git
+  strategy:
+    dockerStrategy:
+    type: Docker
+  successfulBuildsHistoryLimit: 5

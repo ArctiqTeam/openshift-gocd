@@ -7,6 +7,9 @@ Until the privilege is more multi-tenant friendly, users can keep an agent onlin
 
 *Note: Sensitive information is stored in the configmap and is only for demonstration purposes. Please do not store production system sensitive configuration data in git.* 
 
+# Templates
+The [templates](templates) directory holds some examples to utilize this within OpenShift. This could be combined into an OpenShift template if desired, however, they are currently only provided as individual manifests. 
+
 # OAuth Integration with OpenShift
 The following sidecar can be included with GoCD to provide some basic authentication to the instance. This does not integrate with GoCD, but does block users that don't have permission to the namespace from utilizing it. 
 

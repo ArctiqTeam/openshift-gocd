@@ -1,0 +1,26 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  labels:
+    app: gocd-server
+  name: gocd-server
+spec:
+  failedBuildsHistoryLimit: 5
+  output:
+    to:
+      kind: ImageStreamTag
+      name: gocd-server:latest
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    contextDir: gocd-server
+    ref: initial-codeset
+    git:
+      uri: https://github.com/ArctiqTeam/openshift-gocd
+    type: Git
+  strategy:
+    dockerStrategy:
+      from:
+    type: Docker
+  successfulBuildsHistoryLimit: 5
