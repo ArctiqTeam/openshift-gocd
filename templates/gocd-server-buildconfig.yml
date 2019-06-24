@@ -8,14 +8,13 @@ spec:
   failedBuildsHistoryLimit: 5
   output:
     to:
-      kind: ImageStreamTag
-      name: gocd-server:latest
+      kind: DockerImage
+      name: docker-registry.default.svc:5000/${NAMESPACE}/gocd-server:latest
   postCommit: {}
   resources: {}
   runPolicy: Serial
   source:
     contextDir: gocd-server
-    ref: initial-codeset
     git:
       uri: https://github.com/ArctiqTeam/openshift-gocd
     type: Git

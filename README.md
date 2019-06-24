@@ -10,6 +10,15 @@ Until the privilege is more multi-tenant friendly, users can keep an agent onlin
 # Templates
 The [templates](templates) directory holds some examples to utilize this within OpenShift. This could be combined into an OpenShift template if desired, however, they are currently only provided as individual manifests. 
 
+To create everything: 
+- Update all templates with the appropriate namespace references
+- Create each of the objects
+- This can be done with the following command (as an example) from the root of this repo
+
+```
+for n in $(ls templates); do sed 's/${NAMESPACE}/PUT_YOUR_PROJECT_NAME_HERE/g' templates/$n | oc apply -f -; done
+```
+
 # OAuth Integration with OpenShift
 The following sidecar can be included with GoCD to provide some basic authentication to the instance. This does not integrate with GoCD, but does block users that don't have permission to the namespace from utilizing it. 
 
@@ -51,5 +60,6 @@ Digging through the docs, I was originally testing with an HTTP route, which is 
 
 
 # Resources
-https://github.com/GaneshSPatil/openshift-elastic-agents/releases
 https://blog.sakuragawa.moe/deploy-granafa-with-prometheus-and-oauth2-on-openshift/
+https://github.com/openshift/oauth-proxy
+https://docs.gocd.org/current/
