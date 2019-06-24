@@ -2,14 +2,18 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: gocd-openshift
-  name: gocd-openshift
+    app: gocd-server
+  name: gocd-server
 spec:
   ports:
   - name: 8080-tcp
     port: 8080
     protocol: TCP
     targetPort: 8080
+  - name: 8154-tcp
+    port: 8154
+    protocol: TCP
+    targetPort: 8154
   selector:
     app: gocd-server
     deploymentconfig: gocd-server
