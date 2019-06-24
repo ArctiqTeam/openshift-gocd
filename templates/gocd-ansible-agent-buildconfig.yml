@@ -16,7 +16,6 @@ spec:
   runPolicy: Serial
   source:
     contextDir: gocd-ansible-agent
-    ref: initial-codeset
     git:
       uri: https://github.com/ArctiqTeam/openshift-gocd
     type: Git

@@ -15,7 +15,6 @@ spec:
   runPolicy: Serial
   source:
     contextDir: gocd-server
-    ref: initial-codeset
     git:
       uri: https://github.com/ArctiqTeam/openshift-gocd
     type: Git
