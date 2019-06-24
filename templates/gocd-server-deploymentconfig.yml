@@ -36,7 +36,7 @@ spec:
         - --cookie-secret=SECRET
         - --bypass-auth-except-for=/go
         - --pass-basic-auth=false
-        - '-openshift-sar={"namespace": "${PROJECT}", "verb": "list", "resource":
+        - '-openshift-sar={"namespace": "${NAMESPACE}", "verb": "list", "resource":
           "services"}'
         image: registry.access.redhat.com/openshift3/oauth-proxy:v3.11
         imagePullPolicy: IfNotPresent
@@ -48,7 +48,7 @@ spec:
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
-      - image: docker-registry.default.svc:5000/${PROJECT}/gocd-server:latest
+      - image: docker-registry.default.svc:5000/${NAMESPACE}/gocd-server:latest
         imagePullPolicy: Always
         name: gocd-server
         ports:
