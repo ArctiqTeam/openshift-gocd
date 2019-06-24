@@ -1,0 +1,26 @@
+apiVersion: v1
+data:
+  cruise-config.xml: >-
+    <?xml version="1.0" encoding="utf-8"?>
+
+    <cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="124">
+      <server artifactsdir="artifacts" agentAutoRegisterKey="29b2a287-da81-4593-a3e3-e253136ff7b3" webhookSecret="e65213d8-8055-4339-812e-e88e356da9bd" commandRepositoryLocation="default" serverId="190df8f2-9669-4864-bf61-5d63b4c6fa6e" tokenGenerationKey="356ad894-83d5-4078-b681-0cbe92dfe50e">
+        <backup emailOnSuccess="true" emailOnFailure="true" />
+      </server>
+      <config-repos>
+        <config-repo pluginId="yaml.config.plugin" id="statuspage">
+          <git url="https://github.com/BCDevOps/platform-services/" branch="status-page" />
+          <configuration>
+            <property>
+              <key>file_pattern</key>
+              <value>apps/statuspage/.gocd/pipeline.yml</value>
+            </property>
+          </configuration>
+        </config-repo>
+      </config-repos>
+      <pipelines group="defaultGroup" />
+    </cruise>
+kind: ConfigMap
+metadata:
+  name: gocd-server-configmap

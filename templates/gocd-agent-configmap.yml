@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  autoregister.properties: |-
+    agent.auto.register.key=29b2a287-da81-4593-a3e3-e253136ff7b3
+    agent.auto.register.resources=ansible,openshift
+kind: ConfigMap
+metadata:
+  name: gocd-agent-configmap
